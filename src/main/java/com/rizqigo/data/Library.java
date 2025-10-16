@@ -17,8 +17,15 @@ public class Library {
 
   public void showAllBooks() {
     System.out.println("📖 Daftar Buku di Perpustakaan:");
-    for (Book book : books) {
+    for (Book book : this.books) {
       System.out.println("  - " + book.getInfo() + (book.isBorrowed() ? " [Dipinjam]" : " [Belum dipinjam]"));
+    }
+  }
+
+  public void showAllMembers() {
+    System.out.println("👥 Daftar Anggota Perpustakaan:");
+    for (Member member : members) {
+      System.out.println("  - " + member.getName());
     }
   }
 

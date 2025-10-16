@@ -11,6 +11,10 @@ public class Member {
     this.name = name;
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void borrowBook(Book book) {
     if (book.isBorrowed()) {
       System.out.println("❌ Buku sudah dipinjam orang lain: " + book.getTitle());

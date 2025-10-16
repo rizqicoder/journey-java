@@ -43,6 +43,9 @@ public class App {
     // show all books
     library.showAllBooks();
 
+    // show all members library
+    library.showAllMembers();
+
     // joko meminjam buku
     Book book1 = library.getBooks().get(0);
     joko.borrowBook(book1);
