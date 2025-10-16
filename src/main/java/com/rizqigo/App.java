@@ -28,7 +28,7 @@ public class App {
   }
 
   public void mainLibrary() {
-    Library library = new Library();
+    Library library = Library.getInstance();
 
     // adding book to library
     library.addBook(new EBook("sprited away", "kuromi", 3.2));
@@ -48,22 +48,21 @@ public class App {
 
     // joko meminjam buku
     Book book1 = library.getBooks().get(0);
-    joko.borrowBook(book1);
+    joko.borrowBook(book1, library);
 
     // member lain mencoba meminjam buku yang sama dengan joko
-    moro.borrowBook(book1);
+    moro.borrowBook(book1, library);
 
     // daftar buku pinjaman joko
     joko.showBorrowedBooks();
 
-    // lihat daftar buku setelah peminjaman
-    library.showAllBooks();
-
     // joko mengembalikan buku yang dipinjam
-    joko.returnBook(book1);
+    library.showAllBooks();
+    joko.returnBook(book1, library);
 
     // lihat daftar buku setelah pengembalian pinjaman joko
     library.showAllBooks();
+    System.exit(0);
   }
 
   public static void sout(String message) {

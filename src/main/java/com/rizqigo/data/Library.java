@@ -4,8 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
+
+  private static final Library INSTANCE = new Library();
+
   private List<Book> books = new ArrayList<>();
   private List<Member> members = new ArrayList<>();
+
+  private Library() {
+    System.out.println("library instance created");
+  }
+
+  public static Library getInstance() {
+    return INSTANCE;
+  }
 
   public void addBook(Book book) {
     books.add(book);

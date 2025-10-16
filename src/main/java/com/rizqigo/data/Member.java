@@ -1,6 +1,7 @@
 package com.rizqigo.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Member {
@@ -15,19 +16,21 @@ public class Member {
     return this.name;
   }
 
-  public void borrowBook(Book book) {
+  public void borrowBook(Book book, Library library) {
     if (book.isBorrowed()) {
       System.out.println("❌ Buku sudah dipinjam orang lain: " + book.getTitle());
     } else {
       book.borrow();
       borrowedBooks.add(book);
+      this.toggleLibraryBook(book, library, true);
       System.out.println("✅ " + name + " meminjam " + book.getTitle());
     }
   }
 
-  public void returnBook(Book book) {
+  public void returnBook(Book book, Library library) {
     if (borrowedBooks.remove(book)) {
       book.returnBook();
+      this.toggleLibraryBook(book, library, false);
       System.out.println("✅ " + name + " mengembalikan " + book.getTitle());
     } else {
       System.out.println("⚠️ Buku ini tidak ada dalam daftar pinjamanmu!");
@@ -40,5 +43,18 @@ public class Member {
       System.out.println("tidak ada");
     }
     borrowedBooks.forEach(book -> System.out.println(" - " + book.getInfo()));
+  }
+
+  private void toggleLibraryBook(Book book, Library library, boolean toggle) {
+    for (Book b : library.getBooks()) {
+      if (b.getTitle().equalsIgnoreCase(book.getTitle())) {
+        if (toggle) {
+          b.borrow();
+        } else {
+          b.returnBook();
+        }
+        break;
+      }
+    }
   }
 }
