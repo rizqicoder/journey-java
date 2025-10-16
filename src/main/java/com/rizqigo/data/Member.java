@@ -22,7 +22,7 @@ public class Member {
     } else {
       book.borrow();
       borrowedBooks.add(book);
-      this.toggleLibraryBook(book, library, true);
+      this.toggleBorrowBook(book, library, true);
       System.out.println("✅ " + name + " meminjam " + book.getTitle());
     }
   }
@@ -30,7 +30,7 @@ public class Member {
   public void returnBook(Book book, Library library) {
     if (borrowedBooks.remove(book)) {
       book.returnBook();
-      this.toggleLibraryBook(book, library, false);
+      this.toggleBorrowBook(book, library, false);
       System.out.println("✅ " + name + " mengembalikan " + book.getTitle());
     } else {
       System.out.println("⚠️ Buku ini tidak ada dalam daftar pinjamanmu!");
@@ -45,7 +45,7 @@ public class Member {
     borrowedBooks.forEach(book -> System.out.println(" - " + book.getInfo()));
   }
 
-  private void toggleLibraryBook(Book book, Library library, boolean toggle) {
+  private void toggleBorrowBook(Book book, Library library, boolean toggle) {
     for (Book b : library.getBooks()) {
       if (b.getTitle().equalsIgnoreCase(book.getTitle())) {
         if (toggle) {
