@@ -1,7 +1,9 @@
 package com.rizqigo;
 
+import java.io.File;
 // import com.rizqigo.data.Basic;
 import java.util.Arrays;
+import java.util.List;
 
 import com.rizqigo.data.Book;
 import com.rizqigo.data.EBook;
@@ -9,14 +11,36 @@ import com.rizqigo.data.Library;
 import com.rizqigo.data.ManipulationArray;
 import com.rizqigo.data.Member;
 import com.rizqigo.data.PrintedBook;
+import com.rizqigo.data.Todo;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * main class
  */
 public class App {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     App app = new App();
-    app.mainLibrary();
+    app.manipulationJson();
+  }
+
+  public void manipulationJson() throws Exception {
+    ObjectMapper om = new ObjectMapper();
+
+    Todo todo = new Todo("masak nasi", "memasak nasi");
+    String json = om.writerWithDefaultPrettyPrinter()
+        .writeValueAsString(todo);
+    sout(json);
+
+    Todo objTodo = om.readValue(
+        new File("todo.json"), Todo.class);
+    sout(objTodo.toString());
+
+    List<Todo> objTodos = om.readValue(
+        new File("todo2.json"),
+        new TypeReference<List<Todo>>() {
+        });
+    objTodos.forEach(data -> sout(data.toString()));
   }
 
   public void mainManipulationArray() {
@@ -47,7 +71,7 @@ public class App {
     library.showAllMembers();
 
     // joko meminjam buku
-    Book book1 = library.getBooks().get(0);
+    Book book1 = library.getBooks().get(1);
     joko.borrowBook(book1, library);
 
     // member lain mencoba meminjam buku yang sama dengan joko
