@@ -1,3 +1,15 @@
 /home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/App.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Animal.java
 /home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Basic.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Book.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Calculator.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Cat.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Dog.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/EBook.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/GenericVariantExample.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Library.java
 /home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/ManipulationArray.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Member.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/PrintedBook.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/data/Todo.java
+/home/arado/development/learn-java/basic-learn/src/main/java/com/rizqigo/enums/Status.java

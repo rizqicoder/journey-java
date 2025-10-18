@@ -2,7 +2,7 @@ package com.rizqigo.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Todo {
+public class Todo implements Comparable<Todo> {
   private String title;
   private String description;
 
@@ -32,6 +32,11 @@ public class Todo {
 
   public void markAsDone() {
     this.isDone = true;
+  }
+
+  @Override
+  public int compareTo(Todo o) {
+    return this.title.compareTo(o.title);
   }
 
   @Override
